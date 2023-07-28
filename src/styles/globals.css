@@ -2,5 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn-primary {
+  @apply bg-red-700 hover:bg-red-800 border-red-700 hover:border-red-800 text-white;
+}
+
+.footer {
+  row-gap: 1rem;
+}
+
 body {
 }

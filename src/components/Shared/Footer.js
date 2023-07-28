@@ -1,14 +1,18 @@
+import Image from "next/image";
+import Link from "next/link";
+import logoImg from "@/assets/images/footer-logo.png";
+
 const Footer = () => {
   return (
-    <footer className='footer footer-center p-10 bg-base-200 text-base-content rounded'>
+    <footer className='footer footer-center p-10 bg-red-100 text-base-content rounded'>
       <div className='grid grid-flow-col gap-4'>
-        <a className='link link-hover'>About us</a>
-        <a className='link link-hover'>Contact</a>
-        <a className='link link-hover'>Jobs</a>
-        <a className='link link-hover'>Press kit</a>
+        <a className='link link-hover hover:text-error'>About us</a>
+        <a className='link link-hover hover:text-error'>Contact</a>
+        <a className='link link-hover hover:text-error'>Jobs</a>
+        <a className='link link-hover hover:text-error'>Press kit</a>
       </div>
       <div>
-        <div className='grid grid-flow-col gap-4'>
+        <div className='grid grid-flow-col gap-4 text-error'>
           <a>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +49,15 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2023 - All right reserved by PC BUILDER Ltd</p>
+        <Link href='/'>
+          <Image src={logoImg} width={70} height={70} alt='PCB' style={{ objectFit: "contain" }} />
+        </Link>
+      </div>
+      <div>
+        <p>
+          Copyright © 2023 - All right reserved by <span className='text-error font-bold'>My Pc Builder</span>{" "}
+          Ltd
+        </p>
       </div>
     </footer>
   );
