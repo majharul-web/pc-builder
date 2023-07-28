@@ -1,9 +1,10 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import Hero from "@/components/UI/Hero";
 
 const HomePage = () => {
   return (
     <div className='flex justify-center items-center'>
-      <h3 className='text-purple-400'>This is home page</h3>
+      <Hero />
     </div>
   );
 };
