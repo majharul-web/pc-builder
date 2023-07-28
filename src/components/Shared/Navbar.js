@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "@/assets/images/logo.png";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
   return (
     <div className='flex justify-center items-center bg-black'>
       <div className='container '>
@@ -30,16 +34,27 @@ const Navbar = () => {
                 className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
               >
                 <li>
-                  <button className='my-1 btn btn-sm btn-error'>PC Builder </button>
+                  <button onClick={() => router.push("/pc-builder")} className='my-1 btn btn-sm btn-error'>
+                    PC Builder{" "}
+                  </button>
                 </li>
+
+                {session?.user ? (
+                  <li>
+                    <button onClick={() => signOut()} className='my-1 btn btn-sm btn-outline btn-error'>
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <li>
+                    <Link href='/login'>
+                      <button className='mx-1 btn btn-sm btn-outline btn-error'>Login</button>
+                    </Link>
+                  </li>
+                )}
+
                 <li>
-                  <button className='my-1 btn btn-sm btn-outline btn-error'>Login</button>
-                </li>
-                <li>
-                  <button className='my-1 btn btn-sm btn-outline btn-error'>Logout</button>
-                </li>
-                <li>
-                  <ul className='menu menu-horizontal '>
+                  <ul className='menu menu-horizontal' style={{ zIndex: "1" }}>
                     <li>
                       <details>
                         <summary className='text-error hover:text-white' tabIndex={1}>
@@ -118,9 +133,20 @@ const Navbar = () => {
                   </details>
                 </li>
               </ul>
-              <button className='mx-1 btn btn-sm btn-error'>PC Builder </button>
-              <button className='mx-1 btn btn-sm btn-outline btn-error'>Login</button>
-              <button className='mx-1 btn btn-sm btn-outline btn-error'>Logout</button>
+
+              <Link href='/pc-builder'>
+                <button className='my-1 btn btn-sm btn-error'>PC Builder </button>
+              </Link>
+
+              {session?.user ? (
+                <button onClick={() => signOut()} className='mx-1 btn btn-sm btn-outline btn-error'>
+                  Logout
+                </button>
+              ) : (
+                <Link href='/login'>
+                  <button className='mx-1 btn btn-sm btn-outline btn-error'>Login</button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
