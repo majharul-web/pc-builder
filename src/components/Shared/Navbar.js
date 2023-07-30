@@ -54,13 +54,13 @@ const Navbar = () => {
                 )}
 
                 <li>
-                  <ul className='menu menu-horizontal' style={{ zIndex: "1" }}>
+                  <ul className='menu menu-horizontal'>
                     <li>
                       <details>
                         <summary className='text-error hover:text-white' tabIndex={1}>
                           Categories
                         </summary>
-                        <ul className='p-2' tabIndex={1}>
+                        <ul className='p-2' tabIndex={1} style={{ zIndex: "1" }}>
                           <li>
                             <a>CPU / Processor</a>
                           </li>
@@ -106,7 +106,7 @@ const Navbar = () => {
                     <summary className='text-white hover:text-error' tabIndex={2}>
                       Categories
                     </summary>
-                    <ul className='p-2' tabIndex={2}>
+                    <ul className='p-2' tabIndex={2} style={{ zIndex: "1" }}>
                       <li>
                         <a>CPU / Processor</a>
                       </li>
