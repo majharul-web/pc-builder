@@ -11,6 +11,14 @@
 - Used Tailwind CSS and Daisy-UI for css framework.
 - Used Next-Auth for Github authentication.
 
+### Features
+
+- User visit this website and se Featured product and categories.
+- User can see product details.
+- Implemented Github user authentication system.
+- User can build her own pc at puc builder page.
+- For build pc user must have authenticated.
+
 ## Getting Started
 
 Command for, run the development server:
