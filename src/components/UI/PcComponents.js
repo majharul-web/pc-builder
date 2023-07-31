@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { removeFromPcb } from "@/redux/features/pc-builder/pcbSlice";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";

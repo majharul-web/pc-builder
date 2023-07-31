@@ -26,9 +26,13 @@ const pcbSlice = createSlice({
       const productIdToRemove = action.payload;
       state.pcb = state.pcb.filter((product) => product._id !== productIdToRemove);
     },
+
+    clearPcb: (state, action) => {
+      state.pcb = [];
+    },
   },
 });
 
-export const { addToPcb, removeFromPcb } = pcbSlice.actions;
+export const { addToPcb, removeFromPcb, clearPcb } = pcbSlice.actions;
 
 export default pcbSlice.reducer;

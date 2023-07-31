@@ -3,8 +3,9 @@ import Link from "next/link";
 import logoImg from "@/assets/images/footer-logo.png";
 import { signIn } from "next-auth/react";
 import Head from "next/head";
+import RootLayout from "@/components/Layouts/RootLayout";
 
-const login = () => {
+const Login = () => {
   return (
     <div>
       <Head>
@@ -37,4 +38,8 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
+
+Login.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};

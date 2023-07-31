@@ -1,14 +1,16 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import PcComponents from "@/components/UI/PcComponents";
+import { clearPcb } from "@/redux/features/pc-builder/pcbSlice";
 import { categories, getTotalProductPrice } from "@/utils/helper";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 
 const PcBuilder = () => {
   const pcbProducts = useSelector((state) => state.pcb.pcb);
-
+  const dispatch = useDispatch();
   const handleComplete = () => {
     window.my_modal_1.showModal();
+    dispatch(clearPcb());
   };
 
   return (
@@ -40,7 +42,7 @@ const PcBuilder = () => {
               <button
                 onClick={() => handleComplete()}
                 className='btn btn-outline btn-success'
-                disabled={pcbProducts.length > 1}
+                disabled={pcbProducts.length < 5}
               >
                 Complete Build
               </button>
