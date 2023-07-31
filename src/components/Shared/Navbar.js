@@ -64,7 +64,7 @@ const Navbar = () => {
                         <ul className='p-2' tabIndex={1} style={{ zIndex: "1" }}>
                           {categories.map((cat, i) => (
                             <li key={i}>
-                              <Link href={`products/${cat.name}`}>{cat.name}</Link>
+                              <Link href={`/products/${cat.name}`}>{cat.name}</Link>
                             </li>
                           ))}
                         </ul>
@@ -93,7 +93,7 @@ const Navbar = () => {
                     <ul className='p-2' tabIndex={2} style={{ zIndex: "1" }}>
                       {categories.map((cat, i) => (
                         <li key={i}>
-                          <Link href={`products/${cat.name}`}>{cat.name}</Link>
+                          <Link href={`/products/${cat.name}`}>{cat.name}</Link>
                         </li>
                       ))}
                     </ul>
