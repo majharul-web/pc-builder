@@ -3,6 +3,7 @@ import Link from "next/link";
 import logoImg from "@/assets/images/logo.png";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+import { categories } from "@/utils/helper";
 
 const Navbar = () => {
   const router = useRouter();
@@ -61,28 +62,11 @@ const Navbar = () => {
                           Categories
                         </summary>
                         <ul className='p-2' tabIndex={1} style={{ zIndex: "1" }}>
-                          <li>
-                            <a>CPU / Processor</a>
-                          </li>
-                          <li>
-                            <a>Motherboard</a>
-                          </li>
-                          <li>
-                            <a>Motherboard</a>
-                          </li>
-                          <li>
-                            <a>RAM</a>
-                          </li>
-                          <li>Power Supply Unit</li>
-                          <li>
-                            <a>Storage Device</a>
-                          </li>
-                          <li>
-                            <a>Monitor</a>
-                          </li>
-                          <li>
-                            <a>Others</a>
-                          </li>
+                          {categories.map((cat, i) => (
+                            <li key={i}>
+                              <Link href={`products/${cat.name}`}>{cat.name}</Link>
+                            </li>
+                          ))}
                         </ul>
                       </details>
                     </li>
@@ -107,28 +91,11 @@ const Navbar = () => {
                       Categories
                     </summary>
                     <ul className='p-2' tabIndex={2} style={{ zIndex: "1" }}>
-                      <li>
-                        <a>CPU / Processor</a>
-                      </li>
-                      <li>
-                        <a>Motherboard</a>
-                      </li>
-                      <li>
-                        <a>Motherboard</a>
-                      </li>
-                      <li>
-                        <a>RAM</a>
-                      </li>
-                      <li>Power Supply Unit</li>
-                      <li>
-                        <a>Storage Device</a>
-                      </li>
-                      <li>
-                        <a>Monitor</a>
-                      </li>
-                      <li>
-                        <a>Others</a>
-                      </li>
+                      {categories.map((cat, i) => (
+                        <li key={i}>
+                          <Link href={`products/${cat.name}`}>{cat.name}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </details>
                 </li>
